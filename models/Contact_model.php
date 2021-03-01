@@ -27,7 +27,9 @@
             $usersEdit = $this->input->post();  
             unset($usersEdit['btn_enviar']);  
             $query = $this->db->where('Id', $id);    
-            $this->db->update('usuarios', $usersEdit);    
+            // $this->db->set('Username', $nombre);
+            $this->db->update('usuarios',$usersEdit);    
+  
         }
 
         public function Delete($id=null)

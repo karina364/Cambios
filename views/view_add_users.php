@@ -10,18 +10,23 @@
 <body>
 
 
-<?php $data = array(
-        'name'          => 'UserName',
-        'id'            => 'id',
-        'maxlength'     =>  '60',
-        'size'          => '50'
-);?>
+
+<?php
+$data = array(
+    'type'  => 'txt',
+    'id'    => 'id',
+    'name'  => 'UserName',
+    'value' =>  set_value('UserName', @$data_contactos[0]->UserName)
+); 
+
+?>
 
 <?php echo form_error('UserName'); ?> 
 <?php echo form_open("Welcome/addContact"); ?> 
 <?php echo form_label('Nombre de Usuario'); ?> 
 <?php echo form_input($data); ?> 
-<button type="submit">Ingresar</button>
+<?php echo form_submit('btn_enviar', 'Guardar'); ?>
+<!-- <button type="submit">Ingresar</button> -->
 <?php echo form_close(); ?>    
 </body>
 </html>

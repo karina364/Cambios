@@ -19,9 +19,11 @@ class Welcome extends CI_Controller {
 
 	}	 	
 
+	
 	public function userRules(){
 		$this->form_validation->set_rules('UserName', 'UserName', 'required');
 	}
+
 
 	public function addContact()
 	{
@@ -39,8 +41,8 @@ class Welcome extends CI_Controller {
 		{   
 			$this->load->view('view_add_users');
 		}
-		
 	}
+
 
 	public function editContact($id=null)
 	{
@@ -48,11 +50,12 @@ class Welcome extends CI_Controller {
 		{
 			echo'Error en el id';
             return;
-		}else{	  
+		}	  
 			if ($this->input->post())
 			{
 				$this->userRules();	
 				if($this->form_validation->run()==true){
+					// print_r($this->input->post());
 					$this->Contact_model->Edit($id);
 					redirect('../');
 				}else{
@@ -67,12 +70,13 @@ class Welcome extends CI_Controller {
 					echo "El usuario no existe";
 					
 				}else{
-					print_r($data['data_contactos']);
-					print_r($id);
+					// print_r($data['data_contactos']);
+
+					// $this->Contact_model->Edit($id);
 					$this->load->view('view_add_users',$data);
 				}
 			}
-	   }
+			
     }
 
 
@@ -85,6 +89,7 @@ class Welcome extends CI_Controller {
 		}
 		if ($this->input->post())
 			{
+				echo 'Hola';
 				$id_delete = $this->input->post('Id');
 				$this->Contact_model->delete($id_delete);
 				redirect('usuarios', 'refresh');

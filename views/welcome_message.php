@@ -20,7 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		foreach($lista as $key)
 		{ 
 			echo'<tr>';
-			echo '<td>'.$key->UserName;?>-<a href="<?php echo base_url()?>index.php/Welcome/editContact/<?php echo $key->Id;?>">Editar usuario</a></tr>
+			echo '<td>'.$key->UserName;?><td><a href="<?php echo base_url()?>index.php/Welcome/editContact/<?php echo $key->Id;?>">Editar usuario</a>
+			-<a href="<?php echo base_url()?>index.php/Welcome/delete/<?php echo $key->Id;?>">Borrar</a></td></tr>
 			
 <?php	echo '</tr>';	}
    	
